@@ -1,0 +1,106 @@
+{
+  // Place your curso-reactjs-nextjs-project-3 workspace snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+  // description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+  // is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+  // used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+  // Placeholders with the same ids are connected.
+  // Example:
+  // "Print to console": {
+  // 	"scope": "javascript,typescript",
+  // 	"prefix": "log",
+  // 	"body": [
+  // 		"console.log('$1');",
+  // 		"$2"
+  // 	],
+  // 	"description": "Log output to console"
+  // }
+
+  "styled": {
+    "scope": "javascript",
+    "prefix": "styled",
+    "body": [
+      "import styled, { css } from 'styled-components';",
+      "",
+      "export const Container = styled.div`",
+      "\t${({ theme }) => css``}",
+      "`;",
+      "",
+    ],
+    "description": "Create default styled component",
+  },
+
+  "basecomponent": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "basecomponent",
+    "body": [
+      "import React from 'react';",
+      "import P from 'prop-types';",
+      "import * as Styled from './styles';",
+      "",
+      "const $1 = ({ children }) => {",
+      "  return (",
+      "    <Styled.Container>",
+      "      <h1>{children}</h1>$0",
+      "    </Styled.Container>",
+      "  );",
+      "};",
+      "",
+      "export default $1;",
+      "",
+      "$1.propTypes = {",
+      "  children: P.node.isRequired,",
+      "};",
+      "",
+    ],
+    "description": "Create default jsx component",
+  },
+
+  "basestories": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "basestories",
+    "body": [
+      "import $1 from '.';",
+      "",
+      "export default {",
+      "  title: '$1',",
+      "  component: $1,",
+      "  args: {",
+      "    children: '$1',",
+      "  },",
+      "  argTypes: {",
+      "    children: { type: 'string' },",
+      "  },",
+      "};",
+      "",
+      "export const Template = (args) => {",
+      "  return (",
+      "    <div>",
+      "      <$1 {...args} />$0",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+    ],
+    "description": "Create default stories",
+  },
+
+  "basetest": {
+    "scope": "javascript,javascriptreact",
+    "prefix": "basetest",
+    "body": [
+      "import { screen } from '@testing-library/react';",
+      "import { renderTheme } from '../../styles/render-theme';",
+      "import $1 from '.';",
+      "",
+      "describe('<$1 />', () => {",
+      "  it('should render $2', () => {",
+      "    renderTheme(<$1>$1</$1>);",
+      "    expect(screen.getByRole('heading')).toBeInTheDocument();$0",
+      "  });",
+      "});",
+      "",
+    ],
+    "description": "Create default test file",
+  },
+}
