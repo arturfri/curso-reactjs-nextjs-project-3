@@ -1,7 +1,14 @@
 const fs = require('fs');
+const path = require('path');
 
-const nameMainFile = process.argv[2];
-const folderPath = `./${nameMainFile}`;
+const nameMainFile = process.argv[3];
+const pathFromSrc = process.argv[2];
+const folderPath = path.resolve(
+  __dirname,
+  '..',
+  `${pathFromSrc}/${nameMainFile}`,
+);
+console.log(__filename);
 
 const createComponentStructure = () => {
   try {
